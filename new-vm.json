@@ -4,7 +4,7 @@
   "parameters": {
     "storageName": {
       "type": "string",
-      "defaultValue": "b001storage",
+      "defaultValue": "b01storage",
       "metadata": {
         "description": "Name for our storage account"
       }
@@ -17,8 +17,7 @@
       }
     }
   },
-  "variables": {
-  },
+  "variables": {},
   "resources": [
     {
       "name": "[concat(parameters('storageName'), uniqueString(resourceGroup().id))]",
@@ -26,22 +25,22 @@
       "location": "[resourceGroup().location]",
       "apiVersion": "2023-01-01",
       "sku": {
-                "name": "Standard_LRS",
-                "tier": "Standard"
-            },
-"kind": "StorageV2",
-            "properties": {
-                "dnsEndpointType": "Standard",
-                "defaultToOAuthAuthentication": false,
-                "publicNetworkAccess": "Enabled",
-                "allowCrossTenantReplication": false,
-                "minimumTlsVersion": "TLS1_2",
-                "allowBlobPublicAccess": false,
-                "allowSharedKeyAccess": true,
-}
+        "name": "Standard_LRS",
+        "tier": "Standard"
+      },
+      "kind": "StorageV2",
+      "properties": {
+        "dnsEndpointType": "Standard",
+        "defaultToOAuthAuthentication": false,
+        "publicNetworkAccess": "Enabled",
+        "allowCrossTenantReplication": false,
+        "minimumTlsVersion": "TLS1_2",
+        "allowBlobPublicAccess": false,
+        "allowSharedKeyAccess": true,
+      }
     },
     {
-      "name": "batch001-net",
+      "name": "batch001-vnet",
       "type": "Microsoft.Network/virtualNetworks",
       "location": "[resourceGroup().location]",
       "apiVersion": "2023-05-01",
@@ -107,7 +106,6 @@
         "hardwareProfile": {
           "vmSize": "Standard_B1s"
         },
-
         "osProfile": {
           "computerName": "[parameters('vmName')]",
           "adminUsername": "YOURUSERNAME",
@@ -137,6 +135,5 @@
       }
     }
   ],
-  "outputs": {
-  }
+  "outputs": {}
 }
