@@ -24,7 +24,7 @@
       "name": "[concat(parameters('storageName'), uniqueString(resourceGroup().id))]",
       "type": "Microsoft.Storage/storageAccounts",
       "location": "[resourceGroup().location]",
-      "apiVersion": "2015-06-15",
+      "apiVersion": "2023-01-01",
       "properties": {
         "accountType": "Standard_LRS"
       }
@@ -33,7 +33,7 @@
       "name": "batch001-net",
       "type": "Microsoft.Network/virtualNetworks",
       "location": "[resourceGroup().location]",
-      "apiVersion": "2015-06-15",
+      "apiVersion": "2023-05-01",
       "properties": {
         "addressSpace": {
           "addressPrefixes": [
@@ -51,7 +51,7 @@
       }
     },
     {
-      "apiVersion": "2016-03-30",
+      "apiVersion": "2023-05-01",
       "type": "Microsoft.Network/publicIPAddresses",
       "name": "batch001-publicip",
       "location": "[resourceGroup().location]",
@@ -63,7 +63,7 @@
       "name": "[concat(parameters('vmName'),'-nic0')]",
       "type": "Microsoft.Network/networkInterfaces",
       "location": "[resourceGroup().location]",
-      "apiVersion": "2017-06-01",
+      "apiVersion": "2023-05-01",
       "dependsOn": [
         "[concat(resourceId('Microsoft.Network/virtualNetworks', 'batch001-net'))]"
       ],
@@ -88,7 +88,7 @@
       "name": "[concat(parameters('vmName'))]",
       "type": "Microsoft.Compute/virtualMachines",
       "location": "[resourceGroup().location]",
-      "apiVersion": "2017-03-30",
+      "apiVersion": "2023-03-01",
       "dependsOn": [
         "[concat('Microsoft.Network/networkInterfaces/',parameters('vmName'),'-nic0')]"
       ],
@@ -106,7 +106,7 @@
           "imageReference": {
             "publisher": "MicrosoftWindowsServer",
             "offer": "WindowsServer",
-            "sku": "2012-R2-Datacenter",
+            "sku": "2019-datacenter-gensecond",
             "version": "latest"
           },
           "osDisk": {
