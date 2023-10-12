@@ -1,4 +1,4 @@
-$subscriptionId = ""
+$subscriptionId = "e8226998-b9e4-474d-b159-e7bdf5bad35f"
 Select-AzureRmSubscription -SubscriptionId $subscriptionId
 
 $resourceGroup = "batch001-infra"
