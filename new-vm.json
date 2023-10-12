@@ -4,7 +4,7 @@
   "parameters": {
     "storageName": {
       "type": "string",
-      "defaultValue": "batch001storage",
+      "defaultValue": "b001storage",
       "metadata": {
         "description": "Name for our storage account"
       }
@@ -25,9 +25,20 @@
       "type": "Microsoft.Storage/storageAccounts",
       "location": "[resourceGroup().location]",
       "apiVersion": "2023-01-01",
-      "properties": {
-        "accountType": "Standard_LRS"
-      }
+      "sku": {
+                "name": "Standard_LRS",
+                "tier": "Standard"
+            },
+"kind": "StorageV2",
+            "properties": {
+                "dnsEndpointType": "Standard",
+                "defaultToOAuthAuthentication": false,
+                "publicNetworkAccess": "Enabled",
+                "allowCrossTenantReplication": false,
+                "minimumTlsVersion": "TLS1_2",
+                "allowBlobPublicAccess": false,
+                "allowSharedKeyAccess": true,
+}
     },
     {
       "name": "batch001-net",
@@ -94,7 +105,7 @@
       ],
       "properties": {
         "hardwareProfile": {
-          "vmSize": "Basic_A1"
+          "vmSize": "Standard_B1s"
         },
 
         "osProfile": {
