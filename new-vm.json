@@ -75,7 +75,7 @@
       "location": "[resourceGroup().location]",
       "apiVersion": "2023-05-01",
       "dependsOn": [
-        "[concat(resourceId('Microsoft.Network/virtualNetworks', 'batch001-net'))]"
+        "[concat(resourceId('Microsoft.Network/virtualNetworks', 'batch001-vnet'))]"
       ],
       "properties": {
         "ipConfigurations": [
@@ -87,7 +87,7 @@
                 "id": "[resourceId('Microsoft.Network/publicIPAddresses','batch001-publicip')]"
               },
               "subnet": {
-                "id": "[concat(resourceId('Microsoft.Network/virtualNetworks', 'batch001-net'),'/subnets/','frontendSubnet')]"
+                "id": "[concat(resourceId('Microsoft.Network/virtualNetworks', 'batch001-vnet'),'/subnets/','frontendSubnet')]"
               }
             }
           }
