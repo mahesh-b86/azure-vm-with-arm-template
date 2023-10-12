@@ -1,7 +1,7 @@
 $subscriptionId = ""
 Select-AzureRmSubscription -SubscriptionId $subscriptionId
 
-$resourceGroup = "test-infra"
+$resourceGroup = "batch001-infra"
 $location = "North Europe"
 
 New-AzureRmResourceGroup -Name $resourceGroup -Location $location
