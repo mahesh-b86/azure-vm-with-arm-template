@@ -1,2 +1,2 @@
 # azure-vm-with-arm-template
-VM creation using ARM Template
+How to create an Azure Virtual Machine with ARM Template
